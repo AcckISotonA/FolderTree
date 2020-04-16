@@ -1,0 +1,108 @@
+﻿@page
+@model DNSTreeView.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="~/lib/select2/dist/css/select2.css" />
+    <link rel="stylesheet" href="~/lib/select2-bootstrap4-theme/dist/select2-bootstrap4.css" />
+</head>
+
+<body>
+    <main>
+        <form>
+            <div class="center-screen">
+                <div class="card" style="width: 450px; height: 650px;">
+                    <div class="card-header">
+                        <div class="btn-toolbar justify-content-between" role="toolbar">
+                            <div>
+                                <div class="btn-group mr-2" role="group">
+                                    <button id="add_directory" class="btn btn-light"><i class="fa fa-plus-circle"></i> Папка</button>
+                                    <button id="add_file" class="btn btn-light"><i class="fa fa-plus-circle"></i> Файл</button>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button id="refresh_directory" class="btn btn-light" style="width: 50px"><i class="fa fa-retweet"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <select id="sort_by" class="custom-select">
+                                    <option selected>по имени</option>
+                                    <option>по размеру</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="treeView" />
+                        <div id="spinner">
+                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw spin"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div id="addItemDialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 id="addItemDialogTitle" class="modal-title">Modal title</h5>
+                        <button id="btnCloseAddItemDialog" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <label for="itemName" style="width: 110px">Имя</label>
+                            <input id="itemName" type="text">
+                        </div>
+                        <div id="fileSizeGroup">
+                            <label for="fileSize" style="width: 110px">Размер файла</label>
+                            <input id="fileSize" type="number">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnAddItem" type="button" class="btn btn-primary">Добавить</button>
+                        <button id="btnCancelAddItemDialog" type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="errorDialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ошибка</h5>
+                        <button id="btnCloseErrorDialog" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="errorDialogText"></h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnClose" type="button" class="btn btn-primary">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="~/lib/jquery-inputmask/dist/jquery.inputmask.bundle.js"></script>
+    <script src="~/lib/select2/dist/js/select2.js"></script>
+    <script src="~/lib/select2/dist/js/i18n/ru.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

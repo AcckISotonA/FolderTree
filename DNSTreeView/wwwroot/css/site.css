@@ -1,0 +1,86 @@
+﻿
+/* Расположить в центре экрана */
+
+.center-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.card-header {
+    padding: 0px 0px 0px 0px;
+}
+
+.card-body {
+    padding: 0px 0px 0px 0px;
+    overflow: auto;
+}
+/* Элементы списка */
+.row-item {
+    width: 100%;
+    height: 30px;
+    border: solid;
+    border-color: transparent;
+    border-width: 1px;
+    border-radius: unset;
+    background: transparent;
+}
+
+    .row-item:hover {
+        border-color: transparent;
+        background: rgba(50, 114, 200, 0.15);
+    }
+
+    .row-item.row-item-selected {
+        border-color: rgb(95, 162, 221);
+        background: #fce98b;
+    }
+
+.row-icon-space {
+    width: 24px;
+    color: rgb(95, 162, 221);
+}
+
+.row-icon {
+}
+
+.row-space {
+    width: 24px;
+}
+
+.row-text {
+    cursor: default;
+    user-select: none;
+}
+
+.row-text-gray {
+    float: right;
+    cursor: default;
+    user-select: none;
+    color: rgb(150, 150, 150);
+    padding-right: 5px;
+}
+
+.row-caret {
+    cursor: pointer;
+}
+
+#addItemDialog, #errorDialog, #spinner {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 15%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.42);
+}
+
+.spin {
+    position: fixed;
+    margin-top: 45%;
+    margin-left: 45%;
+}
